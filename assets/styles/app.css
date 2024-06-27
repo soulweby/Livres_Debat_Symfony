@@ -1,0 +1,6 @@
+@import "custom";
+@import "~bootstrap/css/bootstrap";
+
+body {
+    background-color: lightgray;
+}
