@@ -1,0 +1,12 @@
+@import url("https://fonts.cdnfonts.com/css/lieselotte");
+body {
+  background-color: #fff2eb;
+  color: black;
+  font-family: cursive;
+}
+h1,
+h2 {
+  font-family: lieselotte;
+  font-size: 400px;
+  font-weight: 400;
+}

@@ -1,6 +1,6 @@
-@import "custom";
-@import "~bootstrap/css/bootstrap";
 
 body {
-    background-color: lightgray;
+    background-color: #fff2eb;
+    color: black;
+    font-family: cursive;
 }
