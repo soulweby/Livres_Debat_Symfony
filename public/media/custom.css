@@ -6,7 +6,68 @@ body {
 }
 h1,
 h2 {
-  font-family: lieselotte;
-  font-size: 400px;
-  font-weight: 400;
+  /* font-family: lieselotte; */
+
+}
+
+.background-radial-gradient {
+  /* background-color: hsl(218, 41%, 15%); */
+  /* background-image: radial-gradient(650px circle at 0% 0%,
+      hsl(218, 41%, 35%) 15%,
+      hsl(218, 41%, 30%) 35%,
+      hsl(218, 41%, 20%) 75%,
+      hsl(218, 41%, 19%) 80%,
+      transparent 100%),
+    radial-gradient(1250px circle at 100% 100%,
+      hsl(218, 41%, 45%) 15%,
+      hsl(218, 41%, 30%) 35%,
+      hsl(218, 41%, 20%) 75%,
+      hsl(218, 41%, 19%) 80%,
+      transparent 100%); */
+}
+
+#radius-shape-1 {
+  height: 220px;
+  width: 220px;
+  top: -60px;
+  left: -130px;
+  /* background: radial-gradient(#070707, #eef5e9c2); */
+  background: radial-gradient(circle at 20% 20%, #fff2eb 0%, rgb(7, 7, 22) 65%, rgb(0, 9, 17) 100%);
+  box-shadow: 10px 10px 30px rgb(0 0 0 /46%);
+  overflow: hidden;
+}
+
+#radius-shape-2 {
+  border-radius: 38% 62% 63% 37% / 70% 33% 67% 30%;
+  bottom: -60px;
+  right: -110px;
+  width: 300px;
+  height: 300px;
+  /* background: radial-gradient(#44006b, #ad1fff); */
+  box-shadow: 10px 10px 30px rgb(0 0 0 /46%);
+
+  background: radial-gradient(circle at 20% 20%, #fff2eb 0%, rgb(7, 7, 22) 65%,#fff2eb 100%);
+  overflow: hidden;
+}
+
+.bg-glass {
+  background-color: hsla(0, 0%, 100%, 0.9) !important;
+  backdrop-filter: saturate(200%) blur(25px);
+  /* border-radius: 20px; */
+  /* box-shadow: 0 25px 45px rgba(0, 0, 0, 0.2); */
+  box-shadow: 10px 10px 30px rgb(0 0 0 /46%);
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(5px);
+}
+
+.bg-glass :after {
+  content: '';
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  bottom: 5px;
+  left: 5px;
+  border-radius: 20px;
+  pointer-events: none;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.1) 0%, rgba(255, -255,-255, -0.1)-2%);
 }
