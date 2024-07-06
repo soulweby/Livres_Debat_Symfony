@@ -4,40 +4,39 @@
 
 {% block header %}
 
-<nav class="navbar navbar-expand-lg bg-dark" data-bs-theme="dark">
+<nav class="navbar navbar-expand-lg  " data-bs-theme="white">
   <div class="container-fluid">
-      <span> <img src={{ asset('media/logoLivreEtDebat.jpg') }} width = "10%"/></span>
+      <a href="{{path('app_home')}}"> <img class=" rounded" src={{ asset('media/logoLivreEtDebat.jpg') }} width = "10%"/></a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarColor02">
-      <ul class="navbar-nav me-auto">
-        <li class="nav-item">
-          <a class="nav-link active" href="#">Home
-            <span class="visually-hidden">(current)</span>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Features</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">About</a>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Dropdown</a>
-          <div class="dropdown-menu">
-            <a class="dropdown-item" href="#">Action</a>
-            <a class="dropdown-item" href="#">Another action</a>
-            <a class="dropdown-item" href="#">Something else here</a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">Separated link</a>
-          </div>
-        </li>
-      </ul>
-      <form class="d-flex">
+     <div>
+      <div>
+        <div class="searchbar">
+          <input class="search_input" type="text" name="" placeholder="Recherche...">
+          <a href="#" class="search_icon"><i class="fas fa-search"></i></a>
+        </div>
+      </div>
+    </div>
+      {# <form class="d-flex">
         <input class="form-control me-sm-2" type="search" placeholder= "recherche">
         <button class="btn btn-secondary my-2 my-sm-0" type="submit">OK</button>
-      </form>
+      </form> #}
+    <div class="">
+     
+       <ul class="navbar-nav me-auto">
+        {# <li class="nav-item">
+          {# <a class="nav-link active" href="#">Home
+            <span class="visually-hidden">(current)</span>
+          </a> 
+        </li> #}
+        <li class="nav-item">
+          <a class="nav-link" href="{{path('app_login')}}">Se connecter</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{path('app_register')}}">S'incrire</a>
+        </li>
+      </ul>
     </div>
   </div>
 </nav>

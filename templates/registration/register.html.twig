@@ -20,14 +20,9 @@
 
         <div class="card bg-glass">
           <div class="card-body px-4 py-5 px-md-5">
-            <form>
+    {{ form_start(registrationForm) }}
               <!-- 2 column grid layout with text inputs for the first and last names -->
               <div class="row">
-                <div class="col-md-6 mb-4">
-                  <div data-mdb-input-init class="form-outline">
-                    <input type="text" id="form3Example1" class="form-control" />
-                    <label class="form-label" for="form3Example1">First name</label>
-                  </div>
                 </div>
                 <div class="col-md-6 mb-4">
                   <div data-mdb-input-init class="form-outline">
@@ -73,7 +68,9 @@
                   <i class="fab fa-github"></i>
                 </button>
               </div>
-            </form>
+   
+    {{ form_end(registrationForm) }}
+
           </div>
         </div>
       </div>
@@ -81,8 +78,10 @@
   </div>
 
 
-{# 
+
     {{ form_start(registrationForm) }}
+        {{ form_row(registrationForm.pseudo) }}
+
         {{ form_row(registrationForm.email) }}
         {{ form_row(registrationForm.plainPassword, {
             label: 'Password'
@@ -90,7 +89,6 @@
         {{ form_row(registrationForm.agreeTerms) }}
 
         <button type="submit" class="btn btn-primary">S'inscrire</button>
-    {{ form_end(registrationForm) }} #}
 </section>
    
 {% endblock %}
