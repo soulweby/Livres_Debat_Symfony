@@ -1,94 +1,50 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Register{% endblock %}
+{% block title %}Register
+{% endblock %}
 
 {% block body %}
-<section  class="background-radial-gradient overflow-hidden   px-md-5 my-5" >
- <h1>S'inscrire</h1>
+	<section class="container">
 
-<div class="container px-4 py-5 px-md-5 text-center text-lg-start my-5">
-    <div class="row gx-lg-5 align-items-center mb-5">
-      <div class="col-lg-6 mb-5 mb-lg-0" >
-        <p class="my-2 display-10 fw-normal">
-        "La lecture apporte à l'homme plénitude, le discours assurance et l'écriture exactitude.” “Il n'y a aucune raison pour que le même individu aime le même livre à dix-huit et à quarante-huit ans.” “Une lecture amusante est aussi utile à la santé que l'exercice du corps.” “Chaque lecture est un acte de résistance."
-        </p>
-      </div>
+		<h1 class="mt-4 mb-5">S'inscrire</h1>
+		<div class="w-50">
+			<p class="my-2 display-10 fw-normal">
+				"La lecture apporte à l'homme plénitude, le discours assurance et l'écriture exactitude.” “Il n'y a aucune raison pour que le même individu aime le même livre à dix-huit et à quarante-huit ans.” “Une lecture amusante est aussi utile à la santé que l'exercice du corps.” “Chaque lecture est un acte de résistance."
+			</p>
+		</div>
 
-     <div class="col-lg-6 mb-5 mb-lg-0 position-relative">
-        <div id="radius-shape-1" class="position-absolute rounded-circle shadow-5-strong"></div>
-        <div id="radius-shape-2" class="position-absolute shadow-5-strong"></div>
+		<div class=" py-5  my-5">
 
-        <div class="card bg-glass">
-          <div class="card-body px-4 py-5 px-md-5">
-    {{ form_start(registrationForm) }}
-              <!-- 2 column grid layout with text inputs for the first and last names -->
-              <div class="row">
-                </div>
-                <div class="col-md-6 mb-4">
-                  <div data-mdb-input-init class="form-outline">
-                    <input type="text" id="form3Example2" class="form-control" />
-                    <label class="form-label" for="form3Example2">Last name</label>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Email input -->
-              <div data-mdb-input-init class="form-outline mb-4">
-                <input type="email" id="form3Example3" class="form-control" />
-                <label class="form-label" for="form3Example3">Email address</label>
-              </div>
-
-              <!-- Password input -->
-              <div data-mdb-input-init class="form-outline mb-4">
-                <input type="password" id="form3Example4" class="form-control" />
-                <label class="form-label" for="form3Example4">Password</label>
-              </div>
-
-              <!-- Submit button -->
-              <button type="submit" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-block mb-4">
-                S'inscrire
-              </button>
-
-              <!-- Register buttons -->
-              <div class="text-center">
-                <p>or sign up with:</p>
-                <button  type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-link btn-floating mx-1">
-                  <i class="fab fa-facebook-f"></i>
-                </button>
-
-                <button  type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-link btn-floating mx-1">
-                  <i class="fab fa-google"></i>
-                </button>
-
-                <button  type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-link btn-floating mx-1">
-                  <i class="fab fa-twitter"></i>
-                </button>
-
-                <button  type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-link btn-floating mx-1">
-                  <i class="fab fa-github"></i>
-                </button>
-              </div>
-   
-    {{ form_end(registrationForm) }}
-
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-
-
-    {{ form_start(registrationForm) }}
-        {{ form_row(registrationForm.pseudo) }}
-
-        {{ form_row(registrationForm.email) }}
-        {{ form_row(registrationForm.plainPassword, {
-            label: 'Password'
-        }) }}
-        {{ form_row(registrationForm.agreeTerms) }}
-
-        <button type="submit" class="btn btn-primary">S'inscrire</button>
-</section>
-   
-{% endblock %}
+			<div class="col-lg-6 mb-5 mb-lg-0 position-relative">
+				<div id="radius-shape-1" class="position-absolute rounded-circle shadow-5-strong"></div>
+				<div id="radius-shape-2" class="position-absolute shadow-5-strong"></div>
+				<div class="card bg-glass">
+					<div
+						class="card-body px-4 py-5 px-md-5">
+						<!-- 2 column grid layout with text inputs for the first and last names -->
+						<div class="col-md-6 mb-4">
+							{{ form_start(registrationForm) }}
+							<div data-mdb-input-init class="form-outline">
+								{{ form_row(registrationForm.pseudo) }}
+							</div>
+						</div>
+						<!-- Email input -->
+						<div data-mdb-input-init class="form-outline mb-4">
+							{{ form_row(registrationForm.email) }}
+						</div>
+						<!-- Password input -->
+						<div data-mdb-input-init class="form-outline mb-4">
+							{{ form_row(registrationForm.plainPassword, {
+                 label: 'Password'
+                }) }}
+							<!-- Submit button -->
+						</div>
+						<button type="submit" class="btn btn-outline-primary">
+							S'inscrire</button>
+					</div>
+					{{ form_end(registrationForm) }}
+				</div>
+			</div>
+		</div>
+	</div>
+</div></section>{% endblock %}
