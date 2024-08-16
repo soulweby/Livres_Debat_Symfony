@@ -14,48 +14,30 @@ class Article
     private $id;
 
     #[ORM\Column(type: 'string', length: 255)]
-    private $titre;
-
-    #[ORM\Column(type: 'boolean', nullable: true)]
-    private $publication;
+    private $title;
 
     #[ORM\Column(type: 'text')]
     private $content;
 
-    #[ORM\Column(type: 'string', length: 255)]
-    private $autor;
+    #[ORM\Column(type: 'datetime_immutable', nullable: true)]
+    private $createAt;
 
-    #[ORM\Column(type: 'date')]
-    private $date;
-
-    #[ORM\OneToOne(inversedBy: 'article', targetEntity: Image::class, cascade: ['persist', 'remove'])]
-    private $Image;
+    #[ORM\Column(type: 'datetime_immutable', nullable: true)]
+    private $updateAt;
 
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getTitre(): ?string
+    public function getTitle(): ?string
     {
-        return $this->titre;
+        return $this->title;
     }
 
-    public function setTitre(string $titre): self
+    public function setTitle(string $title): self
     {
-        $this->titre = $titre;
-
-        return $this;
-    }
-
-    public function isPublication(): ?bool
-    {
-        return $this->publication;
-    }
-
-    public function setPublication(?bool $publication): self
-    {
-        $this->publication = $publication;
+        $this->title = $title;
 
         return $this;
     }
@@ -72,38 +54,26 @@ class Article
         return $this;
     }
 
-    public function getAutor(): ?string
+    public function getCreateAt(): ?\DateTimeImmutable
     {
-        return $this->autor;
+        return $this->createAt;
     }
 
-    public function setAutor(string $autor): self
+    public function setCreateAt(?\DateTimeImmutable $createAt): self
     {
-        $this->autor = $autor;
+        $this->createAt = $createAt;
 
         return $this;
     }
 
-    public function getDate(): ?\DateTimeInterface
+    public function getUpdateAt(): ?\DateTimeImmutable
     {
-        return $this->date;
+        return $this->updateAt;
     }
 
-    public function setDate(\DateTimeInterface $date): self
+    public function setUpdateAt(?\DateTimeImmutable $updateAt): self
     {
-        $this->date = $date;
-
-        return $this;
-    }
-
-    public function getImage(): ?Image
-    {
-        return $this->Image;
-    }
-
-    public function setImage(?Image $Image): self
-    {
-        $this->Image = $Image;
+        $this->updateAt = $updateAt;
 
         return $this;
     }
