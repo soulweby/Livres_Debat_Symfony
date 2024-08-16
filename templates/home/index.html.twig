@@ -6,22 +6,22 @@
 {% block body %}
 
 	<div class="p-5 text-center rounded">
-			<h1 class="display-4 oui">Livres et Débats</h1>
-			<div class="container mt-4">
-				<div class="jumbotron">
-					<p class="lead"></p>
-					<hr class="my-4">
-					<p>Vous voulez la parole ?</p>
-					<p class="lead">
-						<button type="button" class="btn btn-outline-secondary">Learn More</button>
-						<pre>
-							{# {{ dump(comment) }} #}
+		<h1 class="display-4 oui">Livres et Débats</h1>
+		<div class="container mt-4">
+			<div class="jumbotron">
+				<p class="lead"></p>
+				<hr class="my-4">
+				<p>Vous voulez la parole ?</p>
+				<p class="lead">
+					<button type="button" class="btn btn-outline-secondary">Learn More</button>
+					<pre>
+							{{ dump(articles) }}
 						</pre>
-		
-					</p>
-				</div>
+
+				</p>
 			</div>
 		</div>
+	</div>
 	<div class="container">
 		<div
 			class="row">
@@ -30,14 +30,19 @@
 				class="col-lg-8">
 				<!-- Featured blog post-->
 				<div class="card mb-4">
-<a href="#!"><img class="card-img-top" src={{ asset('media/logoLivreEtDebat.jpg') }} alt="..."/></a>
+					<a href="#!"><img class="card-img-top" src={{ asset('media/logoLivreEtDebat.jpg') }} alt="..."/></a>
+					{% for arti in articles %}
 
-					<div class="card-body">
-						<div class="small text-muted">January 1, 2023</div>
-						{# <h2 class="card-title">{{comment.autor}} </h2> #}
-						<p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam. Dicta expedita corporis animi vero voluptate voluptatibus possimus, veniam magni quis!</p>
-						<a class="btn btn-primary" href="#!">Read more →</a>
-					</div>
+						<div class="card-body">
+							{# <div class="small text-muted">{{arti.createAt}}</div> #}
+
+							<h2 class="card-title">{{arti.title}}
+							</h2>
+							<p class="card-text">{{arti.content}}</p>
+
+							<a class="btn btn-primary" href="#!">Read more →</a>
+						</div>
+					{% endfor %}
 				</div>
 				<!-- Nested row for non-featured blog posts-->
 				<div class="row">
