@@ -4,7 +4,7 @@
 {% endblock %}
 
 {% block body %}
-	<style>
+	{# <style>
 		.example-wrapper {
 			margin: 1em auto;
 			max-width: 800px;
@@ -15,7 +15,7 @@
 			background: #F5F5F5;
 			padding: 2px 6px;
 		}
-	</style>
+	</style> #}
 
 	<div class="example-wrapper">
 		<h2>
@@ -24,9 +24,7 @@
 		<p>
 			{{article.content }}! ✅</p>
 
-
-		<a href="{{ path('article_show', {id: article.id}) }}">
-			Retour à la liste d'article <p>🔙</p></a>
+		<a class="btn btn-primary" href="{{ path('article') }}">←</a>
 
 
 	</div>
