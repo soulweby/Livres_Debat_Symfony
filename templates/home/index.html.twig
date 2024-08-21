@@ -5,15 +5,15 @@
 
 {% block body %}
 
-	<div class="p-5 text-center rounded">
-		<h1 class="display-4 oui">Livres et Débats</h1>
+	<div class=" text-center rounded">
+		<h1 class=" oui">Livres et Débats</h1>
 		<div class="container mt-4">
 			<div class="jumbotron">
 				<p class="lead"></p>
-				<hr class="my-4">
+				<hr class="my-1">
 				<p>Vous voulez la parole ?</p>
 				<p class="lead">
-					<button type="button" class="btn btn-outline-secondary">Learn More</button>
+					<button type="button" class="btn btn-outline-secondary">Cliquer pour vous Exprimez</button>
 				</p>
 			</div>
 		</div>
@@ -21,37 +21,31 @@
 	<div class="container">
 		<div
 			class="row">
+
+
 			<!-- Blog entries-->
-			<div class="col-lg-8">
-				<!-- Featured blog post-->
-				<!-- Nested row for non-featured blog posts-->
-					<div class="row"> <div
-						class="col-lg-6">
-						<!-- Blog post-->
-						{% for arti in articles %}
-							<div class="card mb-4">
-								<a href="#!"><img class="card-img-top" src={{ asset('media/logoLivreEtDebat.jpg') }} alt="..."/></a>
-								<div class="card-body">
-									<div class="small text-muted">
-										<p>Publié le
-											{{arti.createAt|date("d/m/Y")}}
-										</p>
-									</div>
-									<h1 class="card-title h4">
-										<a href="{{ path('article_show', {id: arti.id}) }}">{{ arti.title }}</a>
-									</h1>
+			<div class="col-lg-8 ">
+				<div class="row row-cols-auto ">
 
-									{# <p class="card-text">{{arti.content}}</p> #}
-									<a class="btn btn-primary" href="{{ path('article_show', {id: arti.id}) }}">Read more →</a>
-
+					{% for arti in articles %}
+						<div class=" col-sm card mb-4 m-2">
+							<a href="#!"><img class="card-img-top" src={{ asset('media/logoLivreEtDebat.jpg') }} alt="..."/></a>
+							<div class="card-body">
+								<div class="small text-muted">
+									<p>Publié le
+										{{arti.createAt|date("d/m/Y")}}
+									</p>
 								</div>
+								<h1 class="card-title h4">
+									<a href="{{ path('article_show', {id: arti.id}) }}">{{ arti.title }}</a>
+								</h1>
+
+								{# <p class="card-text">{{arti.content}}</p> #}
+								<a class="btn btn-primary" href="{{ path('article_show', {id: arti.id}) }}">Read more →</a>
+
 							</div>
-						{% endfor %}
-
-
-						<!-- Blog post-->
-
-					</div>
+						</div>
+					{% endfor %}
 				</div>
 				<!-- Pagination-->
 				<nav aria-label="Pagination">
@@ -83,7 +77,7 @@
 			</div>
 			<!-- Side widgets-->
 			<div
-				class="col-lg-4">
+				class="col-lg-2">
 				<!-- Search widget-->
 				<div class="card mb-4">
 					<div class="card-header">Search</div>
