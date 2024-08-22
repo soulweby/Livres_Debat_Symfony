@@ -41,6 +41,12 @@ class Article
     #[ORM\Column(type: 'datetime_immutable', nullable: true)]
     private ?\DateTimeImmutable $updatedAt = null;
 
+    #[ORM\Column(length: 255)]
+    private ?string $autor = null;
+
+    #[ORM\Column(length: 255)]
+    private ?string $slug = null;
+
     public function setImageFile(?File $imageFile = null): void
     {
         $this->imageFile = $imageFile;
@@ -126,6 +132,30 @@ class Article
     public function setUpdateAt(?\DateTimeImmutable $updateAt): self
     {
         $this->updatedAt = $updateAt;
+
+        return $this;
+    }
+
+    public function getAutor(): ?string
+    {
+        return $this->autor;
+    }
+
+    public function setAutor(string $autor): static
+    {
+        $this->autor = $autor;
+
+        return $this;
+    }
+
+    public function getSlug(): ?string
+    {
+        return $this->slug;
+    }
+
+    public function setSlug(string $slug): static
+    {
+        $this->slug = $slug;
 
         return $this;
     }

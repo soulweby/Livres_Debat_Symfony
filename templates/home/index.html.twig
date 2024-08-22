@@ -33,9 +33,13 @@
 
 							<div class="card-body">
 								<div class="small text-muted">
-									<p>Publié le
+									<span>Publié le
 										{{arti.createAt|date("d/m/Y")}}
-									</p>
+									</span>
+									<span class= "">Auteur: 
+										{{arti.autor}}
+									</span>
+
 								</div>
 								<h1 class="card-title h4">
 									<a href="{{ path('article_show', {id: arti.id}) }}">{{ arti.title }}</a>
