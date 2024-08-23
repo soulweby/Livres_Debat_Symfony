@@ -29,18 +29,27 @@
 
 					{% for arti in articles %}
 						<div class=" col-sm card mb-4 m-2">
-							<a href="#!"><img class="card-img-top" src={{ vich_uploader_asset(arti) }} alt=" {{arti.title}} "/></a>
+							{# <a href="#!"><img class="card-img-top" src={{ vich_uploader_asset(arti,'imageFile')}} alt=" {{arti.title}} "/></a> #}
+							{# <a href="#!"><img class="card-img-top" src={{vich_uploader_asset(arti,'imageFile') | imagine_filter('miniature')}} alt=" {{arti.title}} "/></a> #}
+							{% set imagePath = vich_uploader_asset(arti, 'imageFile') %}
+								{% if imagePath %}
+									<a href="#!"> <img class="card-img-bottom" src="{{ imagePath | imagine_filter('miniature') }}" alt="{{ arti.title }}"/>
+								</a>
+							{% else %}
+								<p>Image non disponible</p>
+							{% endif %}
 
+
+							<div class="small text-muted">
+								<span>Publié le
+									{{arti.createAt|date("d/m/Y")}}
+									Auteur:
+									{{arti.autor}}
+								</span>
+
+
+							</div>
 							<div class="card-body">
-								<div class="small text-muted">
-									<span>Publié le
-										{{arti.createAt|date("d/m/Y")}}
-									</span>
-									<span class= "">Auteur: 
-										{{arti.autor}}
-									</span>
-
-								</div>
 								<h1 class="card-title h4">
 									<a href="{{ path('article_show', {id: arti.id}) }}">{{ arti.title }}</a>
 								</h1>
