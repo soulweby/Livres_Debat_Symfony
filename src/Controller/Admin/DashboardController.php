@@ -39,7 +39,7 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::section('Blog');
         yield MenuItem::linkToCrud('Articles', 'fa fa-file-text', Article::class);
         yield MenuItem::linkToCrud('Categories', 'fa fa-tags', Categorie::class);
-        yield MenuItem::linkToCrud('Media', 'fa fa-image', Image::class);
+        // yield MenuItem::linkToCrud('Media', 'fa fa-image', Image::class);
         yield MenuItem::section('Users');
         yield MenuItem::linkToCrud('Utilisateurs', 'fa fa-user', User::class);
         yield  MenuItem::linkToCrud('Commentaires', 'fa fa-comment', Comment::class);
