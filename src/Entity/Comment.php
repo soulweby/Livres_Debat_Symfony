@@ -22,6 +22,9 @@ class Comment
     #[ORM\Column(type: 'date')]
     private $date;
 
+    #[ORM\ManyToOne(inversedBy: 'comment')]
+    private ?Article $article = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -59,6 +62,18 @@ class Comment
     public function setDate(\DateTimeInterface $date): self
     {
         $this->date = $date;
+
+        return $this;
+    }
+
+    public function getArticle(): ?Article
+    {
+        return $this->article;
+    }
+
+    public function setArticle(?Article $article): static
+    {
+        $this->article = $article;
 
         return $this;
     }

@@ -51,11 +51,11 @@
 							</div>
 							<div class="card-body">
 								<h1 class="card-title h4">
-									<a href="{{ path('article_show', {id: arti.id}) }}">{{ arti.title }}</a>
+									<a href="{{ path('article_show', {slug: arti.slug}) }}">{{ arti.title }}</a>
 								</h1>
 
 								{# <p class="card-text">{{arti.content}}</p> #}
-								<a class="btn btn-primary" href="{{ path('article_show', {id: arti.id}) }}">Read more →</a>
+								<a class="btn btn-primary" href="{{ path('article_show', {slug: arti.slug}) }}">Read more →</a>
 
 							</div>
 						</div>
