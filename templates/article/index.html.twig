@@ -1,31 +1,52 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello ArticleController!
+{% block title %}
+	{{ article.title }}
 {% endblock %}
 
 {% block body %}
-	{# <style>
-		.example-wrapper {
-			margin: 1em auto;
-			max-width: 800px;
-			width: 95%;
-			font: 18px / 1.5 sans-serif;
-		}
-		.example-wrapper code {
-			background: #F5F5F5;
-			padding: 2px 6px;
-		}
-	</style> #}
-
 	<div class="example-wrapper">
-		<h2>
-			{{article.title }}</h2>
+		<div class="mb-4">
+			<div class="card-body">
+				<h2 class="card-title">{{ article.title }}</h2>
+				<p class="card-text">{{ article.content }}</p>
+			</div>
+		</div>
 
-		<p>
-			{{article.content }}! ✅</p>
+		<div class="card mb-4">
+			<div class="card-header">
+				<h3>Commentaires</h3>
+			</div>
+			<div class="card-body">
+				{% for commentaire in article.comment %}
+					<div class="comment mb-3 p-2 border-bottom">
+						<p>
+							<strong>{{ commentaire.autor }}</strong>
+							<small class="text-muted">le
+								{{ commentaire.date|date('d/m/Y H:i') }}</small>
+						</p>
+						<p>{{ commentaire.content }}</p>
+					</div>
+				{% else %}
+					<p class="text-muted">Aucun commentaire pour cet article.</p>
+				{% endfor %}
+			</div>
+		</div>
 
-		<a class="btn btn-primary" href="{{ path('article') }}">←</a>
+		<div class="card mb-4">
+			<div class="card-header">
+				<h4>Ajouter un commentaire</h4>
+			</div>
+			<div class="card-body">
+				{{ form_start(comment_form) }}
+				{# {{ form_row(comment_form.author, { 'attr': {'class': 'form-control'} }) }} #}
+				{{ form_row(comment_form.content, { 'attr': {'class': 'form-control', 'placeholder': 'Votre commentaire...'} }) }}
+				<button type="submit" class="btn btn-primary mt-3">Envoyer</button>
+				{{ form_end(comment_form) }}
+			</div>
+		</div>
 
-
+		<a class="btn btn-secondary" href="{{ path('article') }}">← Retour</a>
 	</div>
 {% endblock %}
+
