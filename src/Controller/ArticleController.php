@@ -4,8 +4,8 @@ namespace App\Controller;
 
 use App\Entity\Article;
 use App\Entity\Comment;
+use App\Entity\Categorie;
 use App\Form\CommentType;
-use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -21,9 +21,12 @@ class ArticleController extends AbstractController
         $repository = $em->getRepository(Article::class);
         $articles = $repository->findAll();
 
-        // dd($articles);
+
+
+        dd($articles);
         return $this->render('home/index.html.twig', [
             'articles' => $articles,
+            'categories' => $categories
         ]);
     }
 
@@ -32,7 +35,8 @@ class ArticleController extends AbstractController
     {
         $repository = $em->getRepository(Article::class);
         $artic = $repository->findOneBy(['slug' => $slug]);
-        
+
+   
         if (!$artic) {
             throw $this->createNotFoundException("l'article n'existe pas " . ['slug' => $slug]);
         }
@@ -48,6 +52,7 @@ class ArticleController extends AbstractController
 
             return $this->redirectToRoute('article_show', ['slug' => $artic->getSlug()]);
         }
+
 
         return $this->render('article/index.html.twig', [
             'article' => $artic,

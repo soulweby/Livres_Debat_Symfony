@@ -52,9 +52,13 @@ class Article
     #[ORM\OneToMany(mappedBy: 'article', targetEntity: Comment::class)]
     private Collection $comment;
 
+    #[ORM\ManyToMany(targetEntity: Categorie::class, mappedBy: 'article')]
+    private Collection $categories;
+
     public function __construct()
     {
         $this->comment = new ArrayCollection();
+        $this->categories = new ArrayCollection();
     }
 
     public function setImageFile(?File $imageFile = null): void
@@ -203,5 +207,32 @@ class Article
     public function __toString(): string
     {
         return $this->getTitle(); // ou $this->getSlug() selon vos besoins
+    }
+
+    /**
+     * @return Collection<int, Categorie>
+     */
+    public function getCategories(): Collection
+    {
+        return $this->categories;
+    }
+
+    public function addCategory(Categorie $category): static
+    {
+        if (!$this->categories->contains($category)) {
+            $this->categories->add($category);
+            $category->addArticle($this);
+        }
+
+        return $this;
+    }
+
+    public function removeCategory(Categorie $category): static
+    {
+        if ($this->categories->removeElement($category)) {
+            $category->removeArticle($this);
+        }
+
+        return $this;
     }
 }
