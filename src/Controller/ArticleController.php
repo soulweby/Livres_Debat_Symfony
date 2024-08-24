@@ -23,10 +23,9 @@ class ArticleController extends AbstractController
 
 
 
-        dd($articles);
+        // dd($articles);
         return $this->render('home/index.html.twig', [
             'articles' => $articles,
-            'categories' => $categories
         ]);
     }
 

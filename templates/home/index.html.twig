@@ -4,9 +4,43 @@
 {% endblock %}
 
 {% block body %}
+	<style>
+		.example-wrapper {
+			margin: 1em auto;
+			max-width: 800px;
+			width: 95%;
+		}
+		.card {
+			border-radius: 10px; /* Coins arrondis */
+			box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ombre portée */
+			opacity: 0;
+			transform: translateY(20px);
+			animation: fadeIn 0.5s forwards; /* Animation fade-in */
+			transition: box-shadow 0.3s ease, transform 0.3s ease; /* Transition pour le hover */
+		}
+		.card:hover {
+			box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Ombre plus intense au survol */
+			transform: translateY(0) scale(1.02); /* Effet de soulèvement */
+		}
+		.jumbotron {
+			border-radius: 10px; /* Coins arrondis */
+			box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ombre portée */
+			transition: box-shadow 0.3s ease, transform 0.3s ease; /* Transition pour le hover */
+		}
+		.jumbotron:hover {
+			box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Ombre plus intense au survol */
+			transform: translateY(0) scale(1.02); /* Effet de soulèvement */
+		}
+		@keyframes fadeIn {
+			to {
+				opacity: 1;
+				transform: translateY(0);
+			}
+		}
+	</style>
 
-	<div class=" text-center rounded">
-		<h1 class=" oui">Livres et Débats</h1>
+	<div class="text-center rounded">
+		<h1 class="oui">Livres et Débats</h1>
 		<div class="container mt-4">
 			<div class="jumbotron">
 				<p class="lead"></p>
@@ -21,42 +55,29 @@
 	<div class="container">
 		<div
 			class="row">
-
-
 			<!-- Blog entries-->
-			<div class="col-lg-8 ">
-				<div class="row row-cols-auto ">
-
+			<div class="col-lg-8">
+				<div class="row row-cols-auto">
 					{% for arti in articles %}
-						<div class=" col-sm card mb-4 m-2">
-							{# <a href="#!"><img class="card-img-top" src={{ vich_uploader_asset(arti,'imageFile')}} alt=" {{arti.title}} "/></a> #}
-							{# <a href="#!"><img class="card-img-top" src={{vich_uploader_asset(arti,'imageFile') | imagine_filter('miniature')}} alt=" {{arti.title}} "/></a> #}
+						<div class="col-sm card mb-4 m-2">
 							{% set imagePath = vich_uploader_asset(arti, 'imageFile') %}
-								{% if imagePath %}
-									<a href="#!"> <img class="card-img-bottom" src="{{ imagePath | imagine_filter('miniature') }}" alt="{{ arti.title }}"/>
-								</a>
+							{% if imagePath %}
+								<a href="#!"><img class="card-img" src="{{ imagePath | imagine_filter('miniature') }}" alt="{{ arti.title }}"/></a>
 							{% else %}
 								<p>Image non disponible</p>
 							{% endif %}
 
-
 							<div class="small text-muted">
 								<span>Publié le
-									{{arti.createAt|date("d/m/Y")}}
+									{{ arti.createAt|date("d/m/Y") }}
 									Auteur:
-									{{arti.autor}}
-								</span>
-
-
+									{{ arti.autor }}</span>
 							</div>
 							<div class="card-body">
 								<h1 class="card-title h4">
 									<a href="{{ path('article_show', {slug: arti.slug}) }}">{{ arti.title }}</a>
 								</h1>
-
-								{# <p class="card-text">{{arti.content}}</p> #}
 								<a class="btn btn-primary" href="{{ path('article_show', {slug: arti.slug}) }}">Read more →</a>
-
 							</div>
 						</div>
 					{% endfor %}
@@ -144,5 +165,5 @@
 			</div>
 		</div>
 	</div>
+{% endblock %}
 
-</div>{% endblock %}
