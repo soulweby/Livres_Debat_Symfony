@@ -14,6 +14,7 @@
 			border-radius: 10px; /* Coins arrondis */
 			box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ombre portée */
 			opacity: 0;
+			border: none;
 			transform: translateY(20px);
 			animation: fadeIn 0.5s forwards; /* Animation fade-in */
 			transition: box-shadow 0.3s ease, transform 0.3s ease; /* Transition pour le hover */
@@ -77,7 +78,9 @@
 								<h1 class="card-title h4">
 									<a href="{{ path('article_show', {slug: arti.slug}) }}">{{ arti.title }}</a>
 								</h1>
-								<a class="btn btn-primary" href="{{ path('article_show', {slug: arti.slug}) }}">Read more →</a>
+								<a class="btn btn-outline-success rounded-pill" href="{{ path('article_show', {slug: arti.slug}) }}">Read more →</a>
+
+
 							</div>
 						</div>
 					{% endfor %}
@@ -166,4 +169,3 @@
 		</div>
 	</div>
 {% endblock %}
-
