@@ -10,24 +10,20 @@
 body {
   background-color: #dae1e814;
   color: rgb(7 12 22 / 81%);
+  font-family: 'Petrona';
+  font-weight: normal;
 }
 
 h1 {
   font-family: "Helene Queen.K";
   font-size: 6rem;
   color: rgb(7 12 22 / 81%);
-  /* font-weight: bold; */
 }
-h2 {
+h2, h3, h4 {
   font-family: "Mirella Personal Use", sans-serif;
   font-size: normal;
-  font-weight: 500;
-  /* letter-spacing: 1px; */
 }
 
-a {
-  overflow: hidden;
-}
 .example-wrapper {
   margin: 1em auto;
   max-width: 800px;

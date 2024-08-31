@@ -4,36 +4,35 @@
 {% endblock %}
 
 {% block body %}
-	<style></style>
+	{# <div class="text-center rounded">
+				<h1 class="">Livres & Débats</h1>
+		
+		
+				<div class="container mt-4">
+					<div class=" mb-1">
+		
+						<p class="lead"></p>
+						<hr class="my-1">
+						<p>Vous voulez la parole ?</p>
+						<p class="lead">
+							<button type="button" class="btn btn-outline-primary rounded">Cliquer pour vous Exprimez</button>
+		
+						</p>
+					</div>
+				</div>
+			</div> #}
+	<header class="py-5 bg-light border-bottom mb-4">
 
-	<div class="text-center rounded">
-		<h1 class="oui">Livres & Débats</h1>
-
-
-		<div class="container mt-4">
-			<div class=" mb-1">
-
-				<p class="lead"></p>
-				<hr class="my-1">
-				<p>Vous voulez la parole ?</p>
-				<p class="lead">
-					<button type="button" class="btn btn-outline-primary rounded">Cliquer pour vous Exprimez</button>
-
+		<div class="container">
+			<div class="text-center my-5">
+				<h1 class="">Akwaba Livres et Debats</h1>
+				<p class="lead mb-0">
+					Vous voulez la parole ?
 				</p>
+				{# <button type="button" class="btn btn-outline-primary rounded">Cliquer pour vous Exprimez</button> #}
 			</div>
 		</div>
-	</div>
-	{# <header class="py-5 bg-light ">
-							<div class="container jumbotron">
-								<div class="text-center my-5">
-									<h1 class="">Akwaba Livres & Debats</h1>
-									<p class="lead mb-0">
-										Vous voulez la parole ?
-									</p>
-									<button type="button" class="btn btn-outline-primary rounded">Cliquer pour vous Exprimez</button>
-								</div>
-							</div>
-						</header> #}
+	</header>
 	<div class="container">
 		<div
 			class="row">
@@ -42,7 +41,7 @@
 				class="col-lg-8">
 				<!-- Featured blog post-->
 				<div class="card mb-4">
-					<a href="#!"><img class="card-img-top" src={{ asset('trop/Fabrice.jpeg') }} alt="..." width="333.66" height="280.78" style="object-fit:cover;"/></a>
+					<a href="#!"><img class="card-img-top" src={{ asset('trop/logoLivreEtDebat.jpg') }} alt="..." width="333.66" height="280.78" style="object-fit:cover;"/></a>
 					<div class="card-body">
 						<div class="small text-muted">January 1, 2023</div>
 						<h2 class="card-title">Featured Post Title</h2>
@@ -56,20 +55,22 @@
 						<div
 							class="col-lg-6">
 							<!-- Blog post-->
+							<a href="{{ path('article_show', {slug: arti.slug}) }}">
 							<div class="card mb-4">
+								</a>
 								{% set imagePath = vich_uploader_asset(arti, 'imageFile') %}
 								{% if imagePath %}
-									<a href="#!"><img class="card-img-top" src="{{ imagePath | imagine_filter('miniature') }}" alt="{{ arti.title }} width=" 100" height=" 280" style=" object-fit: cover;"/></a>
-										{% else %}
-										<p>Image non disponible</p>
-											{% endif %}
-										<div class=" card-body">
+									<a href="{{ path('article_show', {slug: arti.slug}) }}"><img class="card-img-top" src="{{ imagePath | imagine_filter('miniature') }}" alt="{{ arti.title }} width=" 100" height=" 280" style=" object-fit: cover;"/></a>
+																														{% else %}
+																														<p>Image non disponible</p>
+																															{% endif %}
+																														<div class=" card-body">
 										<div class="small text-muted">
 											{{arti.createAt|date("d/m/Y")}}
 										</div>
 										<h2 class="card-title">{{arti.title}}</h2>
 										<p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla.</p>
-										<a class="btn btn-primary" href="{{ path('article_show', {slug: arti.slug}) }}">Read more →</a>
+										{# <a class="btn btn-primary" href="{{ path('article_show', {slug: arti.slug}) }}">Read more →</a> #}
 									</div>
 								</div>
 							</div>
