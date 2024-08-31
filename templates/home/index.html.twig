@@ -4,182 +4,36 @@
 {% endblock %}
 
 {% block body %}
-	<style>
-		.example-wrapper {
-			margin: 1em auto;
-			max-width: 800px;
-			width: 95%;
-		}
-		.card {
-			border-radius: 10px; /* Coins arrondis */
-			box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ombre portée */
-			opacity: 0;
-			border: none;
-			transform: translateY(20px);
-			animation: fadeIn 0.5s forwards; /* Animation fade-in */
-			transition: box-shadow 0.3s ease, transform 0.3s ease; /* Transition pour le hover */
-		}
-		.card:hover {
-			box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Ombre plus intense au survol */
-			transform: translateY(0) scale(1.02); /* Effet de soulèvement */
-		}
-		.jumbotron {
-			border-radius: 10px; /* Coins arrondis */
-			box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ombre portée */
-			transition: box-shadow 0.3s ease, transform 0.3s ease; /* Transition pour le hover */
-		}
-		.jumbotron:hover {
-			box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Ombre plus intense au survol */
-			transform: translateY(0) scale(1.02); /* Effet de soulèvement */
-		}
-		@keyframes fadeIn {
-			to {
-				opacity: 1;
-				transform: translateY(0);
-			}
-		}
-	</style>
+	<style></style>
 
-	{# <div class="text-center rounded">
-													<h1 class="oui">Livres et Débats</h1>
-													<div class="container mt-4">
-														<div class="jumbotron">
-															<p class="lead"></p>
-															<hr class="my-1">
-															<p>Vous voulez la parole ?</p>
-															<p class="lead">
-																<button type="button" class="btn btn-outline-secondary">Cliquer pour vous Exprimez</button>
-															</p>
-														</div>
-													</div>
-												</div> #}
-	<header class="py-5 bg-light border-bottom mb-4">
-		<div class="container">
-			<div class="text-center my-5">
-				<h1 class="fw-bolder">AKWABA Livres et Debats</h1>
-				<p class="lead mb-0">
-					Vous voulez la parole ?
+	<div class="text-center rounded">
+		<h1 class="oui">Livres & Débats</h1>
+
+
+		<div class="container mt-4">
+			<div class=" mb-1">
+
+				<p class="lead"></p>
+				<hr class="my-1">
+				<p>Vous voulez la parole ?</p>
+				<p class="lead">
+					<button type="button" class="btn btn-outline-primary rounded">Cliquer pour vous Exprimez</button>
+
 				</p>
-				<button type="button" class="btn btn-outline-primary rounded">Cliquer pour vous Exprimez</button>
 			</div>
 		</div>
-	</header>
-
-	{# <div class="container">
-												<div
-													class="row">
-													<!-- Blog entries-->
-													<div class="col-lg-8">
-														<div class="row row-cols-auto">
-															{% for arti in articles %}
-																<div class="col-sm card mb-4 m-2">
-																	{% set imagePath = vich_uploader_asset(arti, 'imageFile') %}
-																	{% if imagePath %}
-																		<a href="#!"><img class="card-img" src="{{ imagePath | imagine_filter('miniature') }}" alt="{{ arti.title }}"/></a>
-																	{% else %}
-																		<p>Image non disponible</p>
-																	{% endif %}
-										
-																	<div class="small text-muted">
-																		<span>Publié le
-																			{{ arti.createAt|date("d/m/Y") }}
-																			Auteur:
-																			{{ arti.autor }}</span>
-																	</div>
-																	<div class="card-body">
-																		<h1 class="card-title h4">
-																			<a href="{{ path('article_show', {slug: arti.slug}) }}">{{ arti.title }}</a>
-																		</h1>
-																		<a class="btn btn-outline-success rounded-pill" href="{{ path('article_show', {slug: arti.slug}) }}">Read more →</a>
-										
-										
-																	</div>
-																</div>
-															{% endfor %}
-														</div>
-														<!-- Pagination-->
-														<nav aria-label="Pagination">
-															<hr class="my-0"/>
-															<ul class="pagination justify-content-center my-4">
-																<li class="page-item disabled">
-																	<a class="page-link" href="#" tabindex="-1" aria-disabled="true">Newer</a>
-																</li>
-																<li class="page-item active" aria-current="page">
-																	<a class="page-link" href="#!">1</a>
-																</li>
-																<li class="page-item">
-																	<a class="page-link" href="#!">2</a>
-																</li>
-																<li class="page-item">
-																	<a class="page-link" href="#!">3</a>
-																</li>
-																<li class="page-item disabled">
-																	<a class="page-link" href="#!">...</a>
-																</li>
-																<li class="page-item">
-																	<a class="page-link" href="#!">15</a>
-																</li>
-																<li class="page-item">
-																	<a class="page-link" href="#!">Older</a>
-																</li>
-															</ul>
-														</nav>
-													</div>
-													<!-- Side widgets-->
-													<div
-														class="col-lg-2">
-														<!-- Search widget-->
-														<div class="card mb-4">
-															<div class="card-header">Search</div>
-															<div class="card-body">
-																<div class="input-group">
-																	<input class="form-control" type="text" placeholder="Enter search term..." aria-label="Enter search term..." aria-describedby="button-search"/>
-																	<button class="btn btn-primary" id="button-search" type="button">Go!</button>
-																</div>
-															</div>
-														</div>
-														<!-- Categories widget-->
-														<div class="card mb-4">
-															<div class="card-header">Categories</div>
-															<div class="card-body">
-																<div class="row">
-																	<div class="col-sm-6">
-																		<ul class="list-unstyled mb-0">
-																			<li>
-																				<a href="#!">Web Design</a>
-																			</li>
-																			<li>
-																				<a href="#!">HTML</a>
-																			</li>
-																			<li>
-																				<a href="#!">Freebies</a>
-																			</li>
-																		</ul>
-																	</div>
-																	<div class="col-sm-6">
-																		<ul class="list-unstyled mb-0">
-																			<li>
-																				<a href="#!">JavaScript</a>
-																			</li>
-																			<li>
-																				<a href="#!">CSS</a>
-																			</li>
-																			<li>
-																				<a href="#!">Tutorials</a>
-																			</li>
-																		</ul>
-																	</div>
-																</div>
-															</div>
-														</div>
-														<!-- Side widget-->
-														<div class="card mb-4">
-															<div class="card-header">Side Widget</div>
-															<div class="card-body">You can put anything you want inside of these side widgets. They are easy to use, and feature the Bootstrap 5 card component!</div>
-														</div>
-													</div>
-												</div>
-											</div> #}
+	</div>
+	{# <header class="py-5 bg-light ">
+							<div class="container jumbotron">
+								<div class="text-center my-5">
+									<h1 class="">Akwaba Livres & Debats</h1>
+									<p class="lead mb-0">
+										Vous voulez la parole ?
+									</p>
+									<button type="button" class="btn btn-outline-primary rounded">Cliquer pour vous Exprimez</button>
+								</div>
+							</div>
+						</header> #}
 	<div class="container">
 		<div
 			class="row">
@@ -188,8 +42,7 @@
 				class="col-lg-8">
 				<!-- Featured blog post-->
 				<div class="card mb-4">
-					<a href="#!"><img class="card-img-top" src={{ asset('trop/Fabrice.jpeg') }} alt="..."/></a>
-
+					<a href="#!"><img class="card-img-top" src={{ asset('trop/Fabrice.jpeg') }} alt="..." width="333.66" height="280.78" style="object-fit:cover;"/></a>
 					<div class="card-body">
 						<div class="small text-muted">January 1, 2023</div>
 						<h2 class="card-title">Featured Post Title</h2>
@@ -206,112 +59,111 @@
 							<div class="card mb-4">
 								{% set imagePath = vich_uploader_asset(arti, 'imageFile') %}
 								{% if imagePath %}
-									<a href="#!"><img class="card-img-top" src="{{ imagePath | imagine_filter('miniature') }}" alt="{{ arti.title }}"/></a>
-								{% else %}
-									<p>Image non disponible</p>
-								{% endif %}
-
-								<div class="card-body">
-									<div class="small text-muted">
-										{{arti.createAt|date("d/m/Y")}}
+									<a href="#!"><img class="card-img-top" src="{{ imagePath | imagine_filter('miniature') }}" alt="{{ arti.title }} width=" 100" height=" 280" style=" object-fit: cover;"/></a>
+										{% else %}
+										<p>Image non disponible</p>
+											{% endif %}
+										<div class=" card-body">
+										<div class="small text-muted">
+											{{arti.createAt|date("d/m/Y")}}
+										</div>
+										<h2 class="card-title">{{arti.title}}</h2>
+										<p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla.</p>
+										<a class="btn btn-primary" href="{{ path('article_show', {slug: arti.slug}) }}">Read more →</a>
 									</div>
-									<h2 class="card-title h4">{{arti.title}}</h2>
-									{# <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla.</p> #}
-									<a class="btn btn-primary" href="{{ path('article_show', {slug: arti.slug}) }}">Read more →</a>
+								</div>
+							</div>
+						{% endfor %}
+					</div>
+					<!-- Pagination-->
+					<nav aria-label="Pagination">
+						<hr class="my-0"/>
+						<ul class="pagination justify-content-center my-4">
+							<li class="page-item disabled">
+								<a class="page-link" href="#" tabindex="-1" aria-disabled="true">Newer</a>
+							</li>
+							<li class="page-item active" aria-current="page">
+								<a class="page-link" href="#!">1</a>
+							</li>
+							<li class="page-item">
+								<a class="page-link" href="#!">2</a>
+							</li>
+							<li class="page-item">
+								<a class="page-link" href="#!">3</a>
+							</li>
+							<li class="page-item disabled">
+								<a class="page-link" href="#!">...</a>
+							</li>
+							<li class="page-item">
+								<a class="page-link" href="#!">15</a>
+							</li>
+							<li class="page-item">
+								<a class="page-link" href="#!">Older</a>
+							</li>
+						</ul>
+					</nav>
+				</div>
+				<!-- Side widgets-->
+				<div
+					class="col-lg-4">
+					<!-- Search widget-->
+					<div class="card mb-4">
+						<div class="card-header">Search</div>
+						<div class="card-body">
+							<div class="input-group">
+								<input class="form-control" type="text" placeholder="Enter search term..." aria-label="Enter search term..." aria-describedby="button-search"/>
+								<button class="btn btn-primary" id="button-search" type="button">Go!</button>
+							</div>
+						</div>
+					</div>
+					<!-- Categories widget-->
+					<div class="card mb-4">
+						<div class="card-header">Categories</div>
+						<div class="card-body">
+							<div class="row">
+								<div class="col-sm-6">
+									<ul class="list-unstyled mb-0">
+										<li>
+											<a href="#!">Web Design</a>
+										</li>
+										<li>
+											<a href="#!">HTML</a>
+										</li>
+										<li>
+											<a href="#!">Freebies</a>
+										</li>
+									</ul>
+								</div>
+								<div class="col-sm-6">
+									<ul class="list-unstyled mb-0">
+										<li>
+											<a href="#!">JavaScript</a>
+										</li>
+										<li>
+											<a href="#!">CSS</a>
+										</li>
+										<li>
+											<a href="#!">Tutorials</a>
+										</li>
+									</ul>
 								</div>
 							</div>
 						</div>
-					{% endfor %}
-				</div>
-				<!-- Pagination-->
-				<nav aria-label="Pagination">
-					<hr class="my-0"/>
-					<ul class="pagination justify-content-center my-4">
-						<li class="page-item disabled">
-							<a class="page-link" href="#" tabindex="-1" aria-disabled="true">Newer</a>
-						</li>
-						<li class="page-item active" aria-current="page">
-							<a class="page-link" href="#!">1</a>
-						</li>
-						<li class="page-item">
-							<a class="page-link" href="#!">2</a>
-						</li>
-						<li class="page-item">
-							<a class="page-link" href="#!">3</a>
-						</li>
-						<li class="page-item disabled">
-							<a class="page-link" href="#!">...</a>
-						</li>
-						<li class="page-item">
-							<a class="page-link" href="#!">15</a>
-						</li>
-						<li class="page-item">
-							<a class="page-link" href="#!">Older</a>
-						</li>
-					</ul>
-				</nav>
-			</div>
-			<!-- Side widgets-->
-			<div
-				class="col-lg-4">
-				<!-- Search widget-->
-				<div class="card mb-4">
-					<div class="card-header">Search</div>
-					<div class="card-body">
-						<div class="input-group">
-							<input class="form-control" type="text" placeholder="Enter search term..." aria-label="Enter search term..." aria-describedby="button-search"/>
-							<button class="btn btn-primary" id="button-search" type="button">Go!</button>
-						</div>
 					</div>
-				</div>
-				<!-- Categories widget-->
-				<div class="card mb-4">
-					<div class="card-header">Categories</div>
-					<div class="card-body">
-						<div class="row">
-							<div class="col-sm-6">
-								<ul class="list-unstyled mb-0">
-									<li>
-										<a href="#!">Web Design</a>
-									</li>
-									<li>
-										<a href="#!">HTML</a>
-									</li>
-									<li>
-										<a href="#!">Freebies</a>
-									</li>
-								</ul>
-							</div>
-							<div class="col-sm-6">
-								<ul class="list-unstyled mb-0">
-									<li>
-										<a href="#!">JavaScript</a>
-									</li>
-									<li>
-										<a href="#!">CSS</a>
-									</li>
-									<li>
-										<a href="#!">Tutorials</a>
-									</li>
-								</ul>
-							</div>
-						</div>
+					<!-- Side widget-->
+					<div class="card mb-4">
+						<div class="card-header">Side Widget</div>
+						<div class="card-body">You can put anything you want inside of these side widgets. They are easy to use, and feature the Bootstrap 5 card component!</div>
 					</div>
-				</div>
-				<!-- Side widget-->
-				<div class="card mb-4">
-					<div class="card-header">Side Widget</div>
-					<div class="card-body">You can put anything you want inside of these side widgets. They are easy to use, and feature the Bootstrap 5 card component!</div>
 				</div>
 			</div>
 		</div>
-	</div>
-	<footer class="py-5 bg-dark">
-		<div class="container">
-			<p class="m-0 text-center text-white">Copyright &copy; Jawiga 2024</p>
-		</div>
-	</footer>
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+		<footer class="py-5 bg-dark">
+			<div class="container">
+				<p class="m-0 text-center text-white">Copyright &copy; Jawiga 2024</p>
+			</div>
+		</footer>
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 
 
-{% endblock %}
+	{% endblock %}

@@ -1,13 +1,65 @@
-@import url("https://fonts.cdnfonts.com/css/lieselotte");
-body {
-  background-color: #fff2eb;
-  color: black;
-  /* font-family: cursive; */
+/* @import url('https://fonts.cdnfonts.com/css/milton-one'); */
+@import url("https://fonts.cdnfonts.com/css/petrona");
+@import url("https://fonts.cdnfonts.com/css/mirella-personal-use");
+@import url("https://fonts.cdnfonts.com/css/alphonse-mucha");
+@font-face {
+  font-family: "Helene Queen.K";
+  src: url("Helene-Queen.K.ttf") format("truetype");
 }
-h1,
-h2 {
-  /* font-family: lieselotte; */
 
+body {
+  background-color: #dae1e814;
+  color: rgb(7 12 22 / 81%);
+}
+
+h1 {
+  font-family: "Helene Queen.K";
+  font-size: 6rem;
+  color: rgb(7 12 22 / 81%);
+  /* font-weight: bold; */
+}
+h2 {
+  font-family: "Mirella Personal Use", sans-serif;
+  font-size: normal;
+  font-weight: 500;
+  /* letter-spacing: 1px; */
+}
+
+a {
+  overflow: hidden;
+}
+.example-wrapper {
+  margin: 1em auto;
+  max-width: 800px;
+  width: 95%;
+}
+.card {
+  border-radius: 10px; /* Coins arrondis */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ombre portée */
+  opacity: 0;
+  border: none;
+  transform: translateY(20px);
+  animation: fadeIn 0.5s forwards; /* Animation fade-in */
+  transition: box-shadow 0.3s ease, transform 0.3s ease; /* Transition pour le hover */
+}
+.card:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Ombre plus intense au survol */
+  transform: translateY(0) scale(1.02); /* Effet de soulèvement */
+}
+.jumbotron {
+  border-radius: 10px; /* Coins arrondis */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ombre portée */
+  transition: box-shadow 0.3s ease, transform 0.3s ease; /* Transition pour le hover */
+}
+.jumbotron:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Ombre plus intense au survol */
+  transform: translateY(0) scale(1.02); /* Effet de soulèvement */
+}
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .background-radial-gradient {
@@ -32,7 +84,12 @@ h2 {
   top: -60px;
   left: -130px;
   /* background: radial-gradient(#070707, #eef5e9c2); */
-  background: radial-gradient(circle at 20% 20%, #fff2eb 0%, rgb(7, 7, 22) 65%, rgb(0, 9, 17) 100%);
+  background: radial-gradient(
+    circle at 20% 20%,
+    #fff2eb 0%,
+    rgb(7, 7, 22) 65%,
+    rgb(0, 9, 17) 100%
+  );
   box-shadow: 10px 10px 30px rgb(0 0 0 /46%);
   overflow: hidden;
 }
@@ -46,7 +103,12 @@ h2 {
   /* background: radial-gradient(#44006b, #ad1fff); */
   box-shadow: 10px 10px 30px rgb(0 0 0 /46%);
 
-  background: radial-gradient(circle at 20% 20%, #fff2eb 0%, rgb(7, 7, 22) 65%,#fff2eb 100%);
+  background: radial-gradient(
+    circle at 20% 20%,
+    #fff2eb 0%,
+    rgb(7, 7, 22) 65%,
+    #fff2eb 100%
+  );
   overflow: hidden;
 }
 
@@ -61,7 +123,7 @@ h2 {
 }
 
 .bg-glass :after {
-  content: '';
+  content: "";
   position: absolute;
   top: 5px;
   right: 5px;
@@ -69,5 +131,9 @@ h2 {
   left: 5px;
   border-radius: 20px;
   pointer-events: none;
-  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.1) 0%, rgba(255, -255,-255, -0.1)-2%);
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.1) 0%,
+    rgba(255, -255, -255, -0.1)-2%
+  );
 }
